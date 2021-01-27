@@ -21,7 +21,7 @@ public class AppTest {
    */
   @Test
   public void test_null_argument() {
-    Assert.assertNotNull(App.obtenerSaludo(null));
+    Assert.assertNull(App.obtenerSaludo(null));
   }
 
   /**

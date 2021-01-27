@@ -36,14 +36,5 @@ pipeline {
                 }
             }
         }
-        stage('Copia Grades to Folder') {
-            steps {
-                // some block
-                echo 'Copiando archivos'
-                fileOperations {
-                    folderCopyOperation('target/site','')
-                }
-            }
-        }
     }
 }
