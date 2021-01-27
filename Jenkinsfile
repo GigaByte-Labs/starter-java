@@ -16,16 +16,24 @@ pipeline {
                 git branch: 'main', url: ''
             }
         } */
-        stage('Grading') {
+        stage('Grading - maven Clean and verify') {
             steps {
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true clean verify"
+            }
+        }
+        stage('Grading - Surefire generate reports') {
+            steps {
                 // Generate report
-                sh "mvn surefire-report:report"
+                sh "mvn surefire-report:report-only"
+            }
+        }
+        stage('Grading - Surefire generate html assets') {
+            steps {
                 // Generate html files css and imgaes
                 sh "mvn site -DgenerateReports=false"
+                echo "Finidhing JOB NAME = ${FOLDER_DEST}"
             }
-
             post {
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
