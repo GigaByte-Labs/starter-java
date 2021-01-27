@@ -6,16 +6,16 @@ pipeline {
     }
 
     environment{
-        FOLDER_DEST = "grades-"${JOB_NAME}-${BUILD_NUMBER}
+        FOLDER_DEST = "grades-${JOB_NAME}-${BUILD_NUMBER}"
     }
 
     stages {
-        stage('GitHub') {
+        /* stage('GitHub') {
             steps{
                 // Get some code from a GitHub repository
-                git branch: 'main', url: 'https://github.com/Tsunami-Laborarios/hola-mundo-mutable-darklatiz'
+                git branch: 'main', url: ''
             }
-        }
+        } */
         stage('Grading') {
             steps {
                 // Run Maven on a Unix agent.
