@@ -50,7 +50,9 @@ pipeline {
             }
         }
         stage('Email -  Sending Grades to Student'){
-            echo "To be implemented"
+            steps{
+                echo "To be implemented"
+            }
         }
     }
 }
