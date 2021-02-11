@@ -4,7 +4,6 @@ pipeline {
     options {
         timestamps()
     }
-
     environment{
         /* FOLDER_DEST = "grades-${JOB_NAME}-${BUILD_NUMBER}" */
         FOLDER_DEST = "grades/${BUILD_NUMBER}"
